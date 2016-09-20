@@ -1,0 +1,47 @@
+<div class="az-admin-header">
+	<h1 class="az-heading">Crear producto</h1>
+</div>
+<div class="az-e-wrapper" style="padding: 15px;">
+    <div class="aside-me" style="border-right: 1px solid black">
+        <div class="isText">
+                <h2>Información</h2>
+
+                <label for="titulo">Nombre del producto *</label>
+                <input type="text" class="form-control az-input" id="titulo" ng-model="product.title">
+                <label for="descripcion">Descripciòn o texto (hasta xx caracteres)</label>
+                <textarea name="" id="" cols="30" rows="10" class="form-control az-input" id="descripcion" ng-model="product.description"></textarea>
+                <label for="text">Precio</label>
+                <input type="text" class="form-control" style="margin-bottom: 20px;" id="date" ng-model="product.cost">
+                <label for="">Imagen</label>
+                <button class="buttons-product az-input" ngf-select="uploadImage($file)" ngf-multiple="true">Subir imagen</button>
+                
+            </div>
+    </div>
+    <div class="aside-me" style="text-align: center;">
+        <h2>Vista previa</h2>
+        <div class="objectWrapper">
+            <div class="divpromo" style="background-size: cover; background-repeat: no-repeat; background-image: url('http://104.131.113.114:3002/api/containers/entity_{{entityId}}/download/{{product.id}}.product')">
+             <div class="date-limit">
+                 {{product.cost}}
+             </div>             
+             </div>
+             <div class="obj-footer">
+                 <div class="obj-header">
+                     <div class="entity-logo">
+                         <img width="60" class="circular" src="http://104.131.113.114:3004/api/containers/entity_{{entity.id}}/download/logo.image" alt="">
+                     </div>
+                     <div class="entity-desc">
+                         <div class="e-name">{{::entity.name}}</div>
+                         <div class="e-addr">{{::entity.address}}</div>
+                         <div class="e-phone">{{::entity.phone}}</div>
+                     </div>
+                     <div class="obj-title">{{product.title}}</div>
+                     <div class="obj-desc">{{product.description}}</div>
+
+                 </div>
+             </div>
+            <button class="buttons-product az-input" style="margin-top: 20px;" ngf-select="uploadImage($file)" ngf-multiple="true">Subir publicación</button>
+
+        </div>
+</div>
+

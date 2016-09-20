@@ -1,0 +1,275 @@
+@import "../node_modules/ng-admin/build/ng-admin.min.css";
+
+
+
+.poster_mini_thumbnail {
+    max-width:25px;
+    max-height:25px;
+}
+
+nav.navbar {
+  background-color: black!important;
+  height: 86px;
+  z-index: 100;
+}
+
+.nav.navbar-top-links a {
+  color: white!important;
+}
+
+.navbar-brand, .navbar-right {
+  height: 100%;
+}
+
+.navbar-brand img {
+  display: inline;
+}
+
+.navbar-brand span {
+  margin-left: 10px;
+  color: white;
+  font-size: 30px;
+  font-weight: bolder;
+  vertical-align: middle;
+}
+
+.navbar-right a {
+  margin-right: 10px;
+  color: white;
+  font-size: 20px;
+  font-weight: bolder;
+  line-height: 86px;
+}
+
+.navbar-default.sidebar {
+  margin-top: 86px;
+}
+
+.navbar-default.sidebar .sidebar-nav .nav a {
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+.sidebar ul li {
+  border-bottom: 3px solid #e7e7e7;
+  margin: 16px;
+}
+
+.sidebar ul li a.active {
+  color: royalblue;
+  background-color: transparent!important;
+}
+
+table.items > tbody > tr > td {
+    vertical-align: middle;
+}
+
+.grid .ng-admin-type-amount, .grid .ng-admin-column-total_spent {
+    text-align: right;
+    padding-right: 1em;
+}
+
+// Basket
+.form-control.delivery_fees {
+    padding-right: 0;
+}
+
+.transparent {
+    color: transparent;
+}
+
+.button-submit-form {
+  position: fixed;
+  top: 2%;
+  z-index: 200;
+  left: 50%;
+}
+
+.rowy-1 {
+  position: relative;
+  float: left;
+  width: 10%;
+}
+
+.rowy-2 {
+  position: relative;
+  float: left;
+  width: 45%;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.center-me {
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.aside {
+  position:relative;
+  float: left;
+  width: 45%;
+  margin: 5px;
+}
+
+.borderless {
+  border: none;
+  width: 95%;
+  height: 25px;
+}
+
+.fake-input {
+  border:1px solid black;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.iconito {
+  display: inline-block;
+  float: right;
+}
+
+.az-tag {
+  float: left;
+  background: #00001a;
+  width: auto;
+  padding: 5px;
+  color: white;
+  font-family: Circular;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.tag-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 150px;
+  margin-top: 40px;
+  border: 1px solid grey;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.az-tag-action {
+  position: relative;
+  float: left;
+  padding: 5px;
+  border-left: 1px solid grey;
+  background: #00001a;
+  color: white;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.az-tag-wrapper {
+  margin: 5px;
+  float: left;
+}
+
+.az-admin-header {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid grey;
+  text-align: left;
+}
+
+.az-font {
+  font-family: Circular !important;
+  color: red;
+}
+
+.az-description {
+  font-family: Circular;
+  font-size:15px;
+  margin-left: 10px;
+  margin-top: -5px;
+}
+
+.az-separator {
+  position: relative;
+  border-top: 1px solid grey;
+  height: 30px;
+  clear: both;
+}
+
+.aside-me {
+  position: relative;
+  float: left;
+  width: 50%;
+  padding: 15px;
+  }
+
+  .divpromo {
+    height: 250px;
+    width: 250px;
+    background: red;
+    position: relative;
+  }
+
+  .date-limit {
+    position: absolute;
+    bottom: 10px;
+    width: 90%;
+    background: black;
+    left: 10px;
+    border-radius: 15px;
+    padding: 5px;
+    color: white;
+  }
+
+  .entity-logo {
+    position: relative;
+    float: left;
+    height: 50px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+  }
+
+  .entity-desc {
+    position: relative;
+    float: left;
+    height: 50px;
+  }
+
+  .obj-footer {
+    border: 1px solid grey;
+    padding: 5px;
+  }
+
+  .obj-title {
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid grey;
+    clear: both;
+    padding: 5px;
+  }
+
+  .obj-desc {
+    position: relative;
+    width: 100%;
+    padding: 5px;
+  }
+
+  .objectWrapper {
+    position: relative;
+    width: 250px;
+    margin: 0 auto;
+  }
+
+  .circular {
+    border-radius: 350px;
+  }
+
+  .az-input {
+    margin-bottom: 5px;
+  }
+
+  .buttons-advert {
+    background: red;
+    border: none;
+    padding: 15px;
+    color: white;
+  } 

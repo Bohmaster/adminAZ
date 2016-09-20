@@ -1,0 +1,39 @@
+<div style="text-align: left; border-bottom: 1px solid #E1E4E6; padding-bottom: 16px; margin-top: -15px; padding-top: 20px;">
+	<h1 style="">Conversación con <span style="color: #97C0DB; font-style: italic;">{{him.username}}</span></h1>
+</div>
+<div class="container" id="chatWindow" style="padding: 25px; text-align: left; overflow-y: auto; height: 450px; margin-top:20px;">
+
+	<div class="row" ng-repeat="m in messages">
+
+		<div ng-if="m.usuarioId == you.id" style="position: relative; float:right;">
+			<div style="float: right; position: relative;">
+				<span class="fa fa-user"></span>
+				<!-- <img src="../../images/user.png" height="20" style="padding: 3px;" alt=""> -->
+			</div>
+			<div style="text-align: right; font-family: Spinnaker, 'sans-serif'; font-size: 10px; color: grey; padding-right: 5px;">
+				{{ m.date }} | <span style="font-size: 12px; font-style: bold; color: black;">{{ you.username }}</span>
+				</div>
+			<div class="message mine">{{ m.text }}</div>
+		</div>
+
+		<div ng-if="m.usuarioId == him.id" style="position: relative; float:left;">
+			<div style="float: left; position: relative;">
+				<span class="fa fa-user"></span>
+				<!-- <img src="../../images/user.png" height="20" style="padding: 3px;" alt=""> -->
+			</div>
+			<div style="text-align: left; font-family: Spinnaker, 'sans-serif'; font-size: 10px; color: grey; padding-left: 5px;">
+				<span style="font-size: 12px; font-style: bold; color: black;">{{ him.username }}</span> | {{ m.date }}</div>
+			<div class="message yours" ng-if="m.usuarioId == him.id"> {{ m.text }}</div>
+		</div>
+	</div>
+</div>
+
+<div class="container" style="padding: 0px;  border-top: 1px solid #E1E4E6; margin-top:20px;">
+	<form action="" style="margin-top: 20px;">
+		<label for="reply">Responder
+			<!-- <span style="float: right; position: relative; font-size:11px; color: grey; padding-bottom: 6px; font-style: italic; font-family: Verdana;">Notificar por email<input type="checkbox" style="margin-left: 10px;"></span> -->
+		</label>
+		<textarea name="" id="reply" cols="70" rows="6" class="form-control" ng-model="message"></textarea>
+		<div class="botonaz" style="margin-top: 20px; width: 200px; font-size: 15px; background: #27547e; color: white;" ng-click="reply()">Enviar</div>
+	</form>
+</div>

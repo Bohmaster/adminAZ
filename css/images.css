@@ -1,0 +1,166 @@
+.image-list {
+  /*display: inline-block;*/
+  /*margin: 10px;*/
+}
+
+.image-container {
+  position:relative;
+  float: left;
+  height: 150px;
+  width: 150px;
+  margin: 3px;
+  border: solid 1px #999;
+}
+
+.image-container .image {
+  width: 100%;
+  height: 100%;
+}
+
+.btn.upload {
+  /*display: block;*/
+  margin-left: 10px;
+}
+
+.img-actions {
+  position: absolute;
+  bottom: 0px;
+  padding: 10px;
+  width: 100%;
+
+  .icon {
+    font-size: 2em;
+  }
+}
+
+.cover {
+  border: 2px solid black;
+  border-radius: 15px;
+}
+
+.button-advert {
+  padding: 10px;
+  border-radius: 30px;
+  border: 2px solid #27547e;
+  width: 300px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.description-advert {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.fechapromo {
+  position: absolute;
+  margin-top: 5px;
+  padding: 8px;
+  background-color: rgba(0, 0, 0, .55);
+  border-radius: 15px;
+  color: white;
+}
+
+.txtfechapromo {
+  font-family: Spinnaker, sans-serif;
+  color: white;
+  font-weight: 400;
+}
+
+.buttons-advert {
+  display: block;
+  background: #27547e;
+  width: 20%;
+  color: white;
+  padding: 20px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.titulopromo {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin-top: 65px;
+  margin-left: 0px;
+  background-color: rgba(0, 0, 0, .55);
+  padding: 8px;
+  border-radius: 15px;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.txttitpromo {
+  position: relative;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  font-family: Spinnaker, sans-serif;
+  color: #fff;
+  font-size: 25px;
+  line-height: 25px;
+  text-align: center;
+  text-shadow: 1px 1px 6px #000, 1px 1px 6px #000;
+  word-wrap: break-word;
+}
+
+.descripromo {
+  position: relative;
+  width: 90%;
+  padding: 4px;
+  margin: 0 auto;
+  margin-top: 10px;
+  background-color: rgba(0, 0, 0, .55);
+  text-align: center;
+  border-radius: 15px;
+  word-wrap: break-word;
+}
+
+.txtdescripromo {
+  position: relative;
+  width: 100%;
+  font-family: Spinnaker, sans-serif;
+  color: #fff;
+  font-size: 17px;
+  text-align: center;
+  text-shadow: 1px 1px 6px #000, 1px 1px 6px #000, 1px 1px 6px #000;
+  word-wrap: break-word;
+}
+
+.divpromo {
+  position: relative;
+  margin: 0 auto !important;
+  padding: 15px;
+  margin: 10px;
+  width: 90%;
+  border: 2px solid black;
+  border-radius: 20px;
+  background-position: center center;
+  background-size: cover;
+  height: 300px;
+}
+
+.divsubtit {
+  position: absolute;
+  padding: 5px;
+  bottom: 12px;
+  width: 90%;
+  background-color: rgba(0, 0, 0, .55);
+  font-family: Spinnaker, sans-serif;
+  color: #fff;
+  text-align: center;
+  border-radius: 15px;
+  text-shadow: 1px 1px 6px #000, 1px 1px 6px #000, 1px 1px 6px #000;
+  left: 50%;
+  transform: translateX(-50%);
+  word-wrap: break-word;
+}
+
+.txtsubtit {
+  position: relative;
+  margin-left: 0px;
+  font-size: 13px;
+  word-wrap: break-word;
+}
