@@ -28,7 +28,7 @@ function newEntityImage($http) {
           target = '';
         }
 
-        console.log('log', scope.entry);        
+        console.log('log', scope.entry);
 
         // ejemplo: category_5548123d92bc492a345sf345
         var containerName = "";
@@ -48,7 +48,7 @@ function newEntityImage($http) {
         // }
 
         if (attrs.name) {
-          containerName = "entity_" + JSON.parse(localStorage.getItem('az_admin_user')).entityId; 
+          containerName = "entity_" + JSON.parse(localStorage.getItem('az_admin_user')).entityId;
         }
 
         var containerUrl = urlBase + 'containers/' + containerName;
@@ -80,7 +80,7 @@ function newEntityImage($http) {
 
                   if(attrs.target==='photo') {
                     if(files[i].name.indexOf('photo')!=-1) {
-                      scope.images.push({'name':files[i].name,'src':containerUrl + '/download/' + files[i].name});
+                      scope.images.push({'name':files[i].name,'src':containerUrl + '/download/' + files[i].name, hovered: false});
                     }
                   }
                 }
@@ -149,15 +149,15 @@ function newEntityImage($http) {
       },
       template:
         `<div style="display:block;">
-          <div class="image-list">
-            <div ng-repeat="img in images" class="image-container" ng-mouseover="hovered = true" ng-mouseleave="hovered = false">
-              <div class="img-actions" style="position: absolute; padding: 5px;" ng-show="hovered && showActions">
-                <button class="btn btn-danger-outline glyphicon glyphicon-trash pull-right" ng-click="removeImage(img.name)"></button>
+          <div class="image-list" style="position: relative;">
+            <div ng-repeat="img in images" class="image-container" style="float:left;" ng-mouseover="img.hovered = true" ng-mouseleave="img.hovered = false">
+              <div class="img-actions" style="position: absolute; padding-top:10px; padding-left:10px;" ng-show="img.hovered && showActions">
+                <button class="btn btn-danger-outline glyphicon glyphicon-trash" ng-click="removeImage(img.name)"></button>
               </div>
               <img class="image" ng-if="target == 'logo'" name="{{img.name}}" width="150"  height="150"ng-src="{{img.src}}"/>
               <img class="image" ng-if="target == 'cover'" name="{{img.name}}" width="100%" height="300" ng-src="{{img.src}}"/>
               <img class="image" ng-if="target == 'webcover'"name="{{img.name}}" width="100%" height="300" ng-src="{{img.src}}"/>
-              <img class="image" ng-if="target == 'photo'"name="{{img.name}}" width="300" height="150" style="margin: 5px; float: left;" ng-src="{{img.src}}"/>
+              <img class="image" ng-if="target == 'photo'"name="{{img.name}}" width="300" height="150" style="margin: 5px;" ng-src="{{img.src}}"/>
             </div>
           </div>
 
