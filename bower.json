@@ -1,0 +1,14 @@
+{
+  "name": "ng-admin-az-club",
+  "description": "Panel del Administration de AZ Club, basado en ng-admin.",
+  "main": "index.html",
+  "authors": [
+    "Jacobo Dominguez"
+  ],
+  "license": "AZCLUB",
+  "homepage": "https://github.com/Bohmaster/adminAZ",
+  "dependencies": {
+    "angular-animate": "^1.5.8",
+    "ngToast": "ngtoast#^2.0.0"
+  }
+}
