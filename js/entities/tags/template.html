@@ -29,6 +29,6 @@
 <div class="tag-wrapper">
 	<div class="az-tag-wrapper" ng-repeat="tag in availableTags">
 		<div class="az-tag">{{ tag.name }}</div>
-		<div class="az-tag-action">x</div>
+		<div ng-click="borrarTag(tag.id)" class="az-tag-action">x</div>
 	</div>
 </div>

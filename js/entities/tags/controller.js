@@ -48,6 +48,33 @@ export default ['$scope', '$http', 'ngToast', function($scope, $http, ngToast) {
     );
   }
 
+  $scope.borrarTag = function(id) {
+
+    debugger;
+
+    console.log(id);
+
+    $http.delete(urlBase + 'tags/' + id + '?access_token=' + user_token)
+    .success(function (res) {
+      // var index = $scope.availableTags.indexOf(id);
+      // if(index!== -1){
+      //   $scope.availableTags.slice(index, 1);
+      // }
+
+      $http.delete(urlBase + 'tags/' + tag.id + '/entities/rel/' + entityId + '?access_token=' + user_token)
+        .success(function (rel) {
+          ngToast.create('deleted');
+
+        }).error(function(err) {
+          console.error(err);
+        });
+
+      }).error(function(err) {
+        console.error(err);
+      }
+    );
+  }
+
   activate();
 
 }]
