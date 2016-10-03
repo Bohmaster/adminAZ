@@ -9,6 +9,7 @@
   "homepage": "https://github.com/Bohmaster/adminAZ",
   "dependencies": {
     "angular-animate": "^1.5.8",
-    "ngToast": "ngtoast#^2.0.0"
+    "ngToast": "ngtoast#^2.0.0",
+    "async": "^2.0.1"
   }
 }
