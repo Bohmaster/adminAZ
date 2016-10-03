@@ -1,7 +1,10 @@
 // require('ng-admin'); removed here and added back as a <script> tag to hep debugging - WebPack doesn't properly handle sourcemaps of dependencies yet
 // require('./api');
 
+var async = require('async');
 var adminApp = angular.module('adminApp', ['ng-admin', 'ngToast', 'ngAnimate']);
+
+console.log(async, '<<------ASYNC!!');
 
 // global custom api configuration
 adminApp.config(['$httpProvider', 'RestangularProvider', function($httpProvider, RestangularProvider) {
