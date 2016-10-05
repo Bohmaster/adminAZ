@@ -8,10 +8,13 @@ export default function (nga, admin) {
       .addChild(nga.menu().link('/tags').title('Tags').icon('<span class="glyphicon glyphicon-tags"></span>'))
       .addChild(nga.menu().link('/images').title('Imagenes').icon('<span class="glyphicon glyphicon-picture"></span>'))
       .addChild(nga.menu().link('/hours').title('Información comercial').icon('<span class="glyphicon glyphicon-picture"></span>'))
+      .addChild(nga.menu().link('/basica').title('Información básica').icon('<span class="glyphicon glyphicon-picture"></span>'))
     )
 
     .addChild(nga.menu().link('/adverts/list').title('Publicaciones').icon('<img src="images/publicaciones-01.png" width="35"></img>'))
+    .addChild(nga.menu().link('/products/list').title('Productos').icon('<img src="images/productos-01.png" width="35"></img>'))
     .addChild(nga.menu(admin.getEntity('chatrooms')).title('Mensajes').icon('<img src="images/mensajes-01.png" width="30"></img>'))
     .addChild(nga.menu(admin.getEntity('clients')).title('Clientes favoritos').icon('<img src="images/clientesfav-01.png" width="30"></img>'))
+    .addChild(nga.menu().link('/tutoriales').title('Tutoriales').icon('<img src="images/tutoriales-01.png" width="35"></img>'))
     ;
 }

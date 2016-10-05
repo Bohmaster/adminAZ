@@ -27,7 +27,7 @@ export default function (nga, admin) {
     .pinned(true)
     .template('<search placeholder="filtrar"></search>')
   ])
-  .actions(['batch','<ma-create-button entity="::entity" label="Nueva"></ma-create-button>'])
+  .actions(['batch','<a type="button" entity="::entity" href="#/adverts/create-adv">Nueva</a>'])
   .listActions([
     '<ma-edit-button size="xs" entry="entry" entity="entity" label="Editar"></ma-edit-button>',
     '<ma-delete-button size="xs" entry="entry" entity="entity" label="Borrar"></ma-delete-button>'
