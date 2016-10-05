@@ -1,11 +1,11 @@
 import template from './template.html';
 
 export default function ($stateProvider) {
-  $stateProvider.state('advertDetail', {
+  $stateProvider.state('infoBasica', {
     parent: 'main',
-    url: '/adverts/create-adv',
+    url: '/basica',
     params: { id: null },
     template: template,
-    controller: 'detailAdvertController',
+    controller: 'infoBasicaController',
   });
 };

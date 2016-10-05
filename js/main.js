@@ -4,8 +4,6 @@
 var async = require('async');
 var adminApp = angular.module('adminApp', ['ng-admin', 'ngToast', 'ngAnimate']);
 
-console.log(async, '<<------ASYNC!!');
-
 // global custom api configuration
 adminApp.config(['$httpProvider', 'RestangularProvider', function($httpProvider, RestangularProvider) {
   var user_token = JSON.parse(localStorage.getItem('az_admin_login')).id;
@@ -93,6 +91,8 @@ adminApp.config(['$stateProvider', require('./adverts/state')]);
 adminApp.controller('detailAdvertController', require('./adverts/controller'));
 adminApp.config(['$stateProvider', require('./products/state')]);
 adminApp.controller('detailProductController', require('./products/controller'));
+adminApp.config(['$stateProvider', require('./entities/basica/state')]);
+adminApp.controller('infoBasicaController', require('./entities/basica/controller'));
 
 adminApp.config(['NgAdminConfigurationProvider', function (nga) {
 
@@ -146,6 +146,7 @@ adminApp.config(['NgAdminConfigurationProvider', function (nga) {
         admin.addEntity(nga.entity('chatrooms'));
         admin.addEntity(nga.entity('usuarios'));
         admin.addEntity(nga.entity('clients'));
+        admin.addEntity(nga.entity('products'));
 
         require('./entities/configComercio')(nga, admin);
         require('./tags/configComercio')(nga, admin);
@@ -153,6 +154,7 @@ adminApp.config(['NgAdminConfigurationProvider', function (nga) {
         require('./usuarios/configComercio')(nga, admin);
         require('./chatrooms/configComercio')(nga, admin);
         require('./clients/configComercio')(nga, admin);
+        require('./products/configComercio')(nga, admin);
 
         admin.dashboard(require('./dashboard/configComercio')(nga, admin));
         admin.menu(require('./menuComercio')(nga, admin));
@@ -163,9 +165,16 @@ adminApp.config(['NgAdminConfigurationProvider', function (nga) {
     nga.configure(admin);
 }]);
 
-adminApp.config(['ngToastProvider', function(ngToastProvider) {
+adminApp.config(['ngToastProvider', '$stateProvider', function(ngToastProvider, $stateProvider) {
   console.log('pre');
   ngToastProvider.configure({
     animation: 'fade' // or 'fade'
   });
+
+  // $stateProvider.state('advertDetail', {
+  //   parent: 'main',
+  //   url: '/tutoriales',
+  //   params: { id: null },
+  //   template: ''
+  // });
 }]);

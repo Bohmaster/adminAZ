@@ -1,10 +1,10 @@
 export default function (nga, admin) {
 
-  var Adverts = admin.getEntity('adverts');
+  var Products = admin.getEntity('products');
 
   var entityId = JSON.parse(localStorage.getItem('az_admin_user')).entityId;
 
-  Adverts.listView()
+  Products.listView()
   .permanentFilters({
     entityId: entityId
   })
@@ -27,14 +27,14 @@ export default function (nga, admin) {
     .pinned(true)
     .template('<search placeholder="filtrar"></search>')
   ])
-  .actions(['batch','<ma-create-button entity="::entity" label="Nueva"></ma-create-button>'])
+  .actions(['batch','<a type="button" entity="::entity" href="#/products/create-prod">Nueva</a>'])
   .listActions([
     '<ma-edit-button size="xs" entry="entry" entity="entity" label="Editar"></ma-edit-button>',
     '<ma-delete-button size="xs" entry="entry" entity="entity" label="Borrar"></ma-delete-button>'
   ])
-  .title('Promociones');
+  .title('Productos');
 
-  Adverts.creationView().fields([
+  Products.creationView().fields([
     nga.field('dummy').label('').template('Completa los campos de texto, guarda la promo o destacado para luego editarlo y poder agregar la imagen que quieras. Compartila automáticamente en Facebook'),
 
     nga.field('banner', 'choice')
@@ -57,7 +57,7 @@ export default function (nga, admin) {
   ])
   .title('Crear nueva Promoción');
 
-  Adverts.editionView().fields([
+  Products.editionView().fields([
     nga.field('banner', 'choice')
     .defaultValue(false)
     .attributes({ placeholder: 'Tipo' })
@@ -82,7 +82,7 @@ export default function (nga, admin) {
     '<ma-delete-button entry="entry" entity="entity" label="Borrar"></ma-delete-button>'
   ]);
 
-  Adverts.showView().fields([
+  Products.showView().fields([
     nga.field('banner').label('Tipo de Promoción')
     .map(function(value){
       return (value)?'Banner':'Texto';
@@ -104,12 +104,12 @@ export default function (nga, admin) {
 
   ]).title('Promociones');
 
-  Adverts.deletionView().fields(
+  Products.deletionView().fields(
     nga.field('title').label('Titulo')
   )
   .actions(['<ma-list-button entry="entry" entity="entity" label="Lista"></ma-list-button>'])
   .title('Borrar "{{ entry.values.title }}"');
 
-  return Adverts;
+  return Products;
 
 }
