@@ -166,17 +166,17 @@ adminApp.config(['NgAdminConfigurationProvider', function (nga) {
     nga.configure(admin);
 }]);
 
-adminApp.config(['ngToastProvider', '$stateProvider', 'uiGmapGoogleMapApiProvider', function(ngToastProvider, $stateProvider, uiGmapGoogleMapApiProvider) {
+adminApp.config(['ngToastProvider', '$stateProvider', function(ngToastProvider, $stateProvider) {
   console.log('pre');
   ngToastProvider.configure({
     animation: 'fade' // or 'fade'
   });
 
-  uiGmapGoogleMapApiProvider.configure({
-      key: 'AIzaSyAMdV-HX0rtJd1njvA714X8mE1-ge--9EI',
-      v: '3.20', //defaults to latest 3.X anyhow
-      libraries: 'weather,geometry,visualization'
-  });
+  // uiGmapGoogleMapApiProvider.configure({
+  //     key: 'AIzaSyAMdV-HX0rtJd1njvA714X8mE1-ge--9EI',
+  //     v: '3.20' //defaults to latest 3.X anyhow
+  //     // libraries: 'weather,geometry,visualization, places'
+  // });
 
   // $stateProvider.state('advertDetail', {
   //   parent: 'main',
