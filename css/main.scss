@@ -1,6 +1,8 @@
 @import "../node_modules/ng-admin/build/ng-admin.min.css";
 
-
+.angular-google-map-container {
+  height: 400px;
+}
 
 .poster_mini_thumbnail {
     max-width:25px;
@@ -272,4 +274,4 @@ table.items > tbody > tr > td {
     border: none;
     padding: 15px;
     color: white;
-  } 
+  }

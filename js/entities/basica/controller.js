@@ -1,4 +1,4 @@
-export default ['$scope', '$http', function($scope, $http) {
+export default ['$scope', '$http','uiGmapGoogleMapApi', function($scope, $http, uiGmapGoogleMapApi) {
 
   // $scope.availableTags = [];
 
@@ -11,6 +11,13 @@ export default ['$scope', '$http', function($scope, $http) {
     // loadTags();
     console.log('hello you!');
   }
+
+  $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+  // uiGmapGoogleMapApi is a promise.
+  // The "then" callback function provides the google.maps object.
+  uiGmapGoogleMapApi.then(function(maps) {
+    console.log('maps');
+  });
 
   // function loadTags() {
   //   $http.get(
