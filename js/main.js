@@ -2,7 +2,7 @@
 // require('./api');
 
 var async = require('async');
-var adminApp = angular.module('adminApp', ['ng-admin', 'ngToast', 'ngAnimate']);
+var adminApp = angular.module('adminApp', ['ng-admin', 'ngToast', 'ngAnimate', 'uiGmapgoogle-maps']);
 
 // global custom api configuration
 adminApp.config(['$httpProvider', 'RestangularProvider', function($httpProvider, RestangularProvider) {
@@ -11,6 +11,7 @@ adminApp.config(['$httpProvider', 'RestangularProvider', function($httpProvider,
   RestangularProvider.setFullResponse(true);
   $httpProvider.defaults.useXDomain = true;
   delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
 }]);
 
 // custom API flavor
@@ -170,6 +171,12 @@ adminApp.config(['ngToastProvider', '$stateProvider', function(ngToastProvider, 
   ngToastProvider.configure({
     animation: 'fade' // or 'fade'
   });
+
+  // uiGmapGoogleMapApiProvider.configure({
+  //     key: 'AIzaSyAMdV-HX0rtJd1njvA714X8mE1-ge--9EI',
+  //     v: '3.20' //defaults to latest 3.X anyhow
+  //     // libraries: 'weather,geometry,visualization, places'
+  // });
 
   // $stateProvider.state('advertDetail', {
   //   parent: 'main',

@@ -1,6 +1,16 @@
 @import "../node_modules/ng-admin/build/ng-admin.min.css";
 
+.angular-google-map-container {
+  margin-top: 20px;
+  height: 400px;
+}
 
+.markerlabel {
+  background-color: red;
+  color: #fff;
+  padding: 2px;
+  border-radius: 2px;
+}
 
 .poster_mini_thumbnail {
     max-width:25px;
@@ -272,4 +282,4 @@ table.items > tbody > tr > td {
     border: none;
     padding: 15px;
     color: white;
-  } 
+  }
