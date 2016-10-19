@@ -185,3 +185,17 @@ adminApp.config(['ngToastProvider', '$stateProvider', function(ngToastProvider, 
   //   template: ''
   // });
 }]);
+
+adminApp.run(function($state, $rootScope) {
+
+    var subscription = JSON.parse(localStorage.getItem('az_admin_subscription')).name;
+    debugger;
+    $rootScope.$on('$stateChangeStart', function(e, to, toP, from, fromP){
+       if(to.data && to.data.subscriptions && to.data.subscriptions.length > 0 && typeof subscription !== 'undefined'){
+           if(to.data.subscriptions.indexOf(subscription) === -1){
+               e.preventDefault();
+               $state.go('entityHours');
+           }
+        }
+    });
+  });
