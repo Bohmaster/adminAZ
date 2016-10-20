@@ -7,5 +7,11 @@ export default function ($stateProvider) {
     params: { id: null },
     template: template,
     controller: 'infoBasicaController',
+    data: {
+      subscriptions: [
+        'plata',
+        'oro'
+      ]
+    }
   });
 };
