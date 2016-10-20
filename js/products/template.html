@@ -14,7 +14,7 @@
                 <input type="text" class="form-control" style="margin-bottom: 20px;" id="date" ng-model="product.cost">
                 <label for="">Imagen</label>
                 <button class="buttons-product az-input" ngf-select="uploadImage($file)" ngf-multiple="true">Subir imagen</button>
-                
+
             </div>
     </div>
     <div class="aside-me" style="text-align: center;">
@@ -23,7 +23,7 @@
             <div class="divpromo" style="background-size: cover; background-repeat: no-repeat; background-image: url('http://104.131.113.114:3002/api/containers/entity_{{entityId}}/download/{{product.id}}.product')">
              <div class="date-limit">
                  {{product.cost}}
-             </div>             
+             </div>
              </div>
              <div class="obj-footer">
                  <div class="obj-header">
@@ -40,8 +40,7 @@
 
                  </div>
              </div>
-            <button class="buttons-product az-input" style="margin-top: 20px;" ngf-select="uploadImage($file)" ngf-multiple="true">Subir publicación</button>
+            <button class="buttons-product az-input" style="margin-top: 20px;" ng-click="createproduct()">Guardar Producto</button>
 
         </div>
 </div>
-
