@@ -186,15 +186,42 @@ adminApp.config(['ngToastProvider', '$stateProvider', function(ngToastProvider, 
   // });
 }]);
 
-adminApp.run(function($state, $rootScope) {
+adminApp.run(function($state, $rootScope, $http) {
 
-    var subscription = JSON.parse(localStorage.getItem('az_admin_subscription')).name;
-    debugger;
+    var subscription = JSON.parse(localStorage.getItem('az_admin_subscription'));
+    var user = JSON.parse(localStorage.getItem('az_admin_user'));
+    var user_token = JSON.parse(localStorage.getItem('az_admin_login')).id;
+
     $rootScope.$on('$stateChangeStart', function(e, to, toP, from, fromP){
        if(to.data && to.data.subscriptions && to.data.subscriptions.length > 0 && typeof subscription !== 'undefined'){
-           if(to.data.subscriptions.indexOf(subscription) === -1){
+           if(to.data.subscriptions.indexOf(subscription.name) === -1){
                e.preventDefault();
-               $state.go('entityHours');
+               $state.go('entityHours'); //TODO: Change to correct page
+           }else{
+             if(to.data.limited && to.data.limit_type && typeof user !== 'undefined'){
+               switch (to.data.limit_type) {
+                 case 'advert':
+                    $http.get(urlBase + 'entities/' + user.entityId + '/adverts/count?access_token=' + user_token )
+                    .success(function(quantity){
+                      console.log(quantity);
+                      if(subscription.adverts_limit >= quantity.count){
+                        e.preventDefault();
+                        $state.go('entityHours'); //TODO: Change to correct page
+                      }
+                    });
+                   break;
+                 case 'product':
+                    $http.get(urlBase + 'entities/' + user.entityId + '/products/count?access_token=' + user_token )
+                    .success(function(quantity){
+                      console.log(quantity);
+                      if(subscription.products_limit >= quantity.count){
+                        e.preventDefault();
+                        $state.go('entityHours'); //TODO: Change to correct page
+                      }
+                    });
+                   break;
+               }
+             }
            }
         }
     });
