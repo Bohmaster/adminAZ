@@ -7,5 +7,11 @@ export default function ($stateProvider) {
     params: { id: null },
     template: template,
     controller: 'entityHoursController',
+    data: {
+      subscriptions: [
+        'plata',
+        'oro'
+      ]
+    }
   });
 };
