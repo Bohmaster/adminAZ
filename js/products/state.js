@@ -7,5 +7,13 @@ export default function ($stateProvider) {
     params: { id: null },
     template: template,
     controller: 'detailProductController',
+    data: {
+      subscriptions: [
+        'plata',
+        'oro'
+      ],
+      limited: true,
+      limit_type: 'product'
+    }
   });
 };

@@ -1,6 +1,6 @@
 window.addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 
-var urlBase = 'http://104.131.113.114:3004';
+var urlBase = 'http://104.131.113.114:3002';
 //var urlBase = '';
 
 function hideURLbar(){
@@ -20,11 +20,24 @@ function login(e) {
     success: function(session) {
       $.ajax({
         // filter={"include":{"relation":"entity","fields":"subdomain"}}
-        url: urlBase + '/api/usuarios/' + session.userId + "?filter[include]=entity&access_token=" + session.id,
+        url: urlBase + '/api/usuarios/' + session.userId + "?access_token=" + session.id,
+        data: {
+          filter: {
+            include: {
+                relation: 'entity',
+                scope: {
+                  include:{
+                      relation: 'subscription'
+                  }
+                }
+            }
+          }
+        },
         type: 'get',
         success: function (user) {
           window.localStorage.setItem("az_admin_login",JSON.stringify(session));
           window.localStorage.setItem("az_admin_user",JSON.stringify(user));
+          window.localStorage.setItem("az_admin_subscription",JSON.stringify(user.entity.subscription));
           window.location.href = "./index.html";
           return false;
         },
