@@ -23,16 +23,21 @@
   color: black;
 }
 
-    
+
         </style>
     </head>
     <body ng-app="adminApp">
         <toast></toast>
         <div ui-view></div>
         <script src="js/login.js" type="text/javascript"></script>
+        <!-- <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script> -->
         <script type="text/javascript" src="build/ng-admin.min.js" charset="utf-8"></script>
         <script src="bower_components/angular-animate/angular-animate.min.js"></script>
         <script src="bower_components/ngToast/dist/ngToast.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMdV-HX0rtJd1njvA714X8mE1-ge--9EI&libraries=places"></script>
+        <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
+        <script src="bower_components/lodash/dist/lodash.min.js"></script>
+        <script src="bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>
 
         <script type="text/javascript" src="build/main.js" charset="utf-8"></script>
         <script type="text/javascript" src="node_modules/moment/moment.js"></script>

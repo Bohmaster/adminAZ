@@ -1,7 +1,8 @@
 // require('ng-admin'); removed here and added back as a <script> tag to hep debugging - WebPack doesn't properly handle sourcemaps of dependencies yet
 // require('./api');
 
-var adminApp = angular.module('adminApp', ['ng-admin', 'ngToast', 'ngAnimate']);
+var async = require('async');
+var adminApp = angular.module('adminApp', ['ng-admin', 'ngToast', 'ngAnimate', 'uiGmapgoogle-maps']);
 
 // global custom api configuration
 adminApp.config(['$httpProvider', 'RestangularProvider', function($httpProvider, RestangularProvider) {
@@ -10,6 +11,7 @@ adminApp.config(['$httpProvider', 'RestangularProvider', function($httpProvider,
   RestangularProvider.setFullResponse(true);
   $httpProvider.defaults.useXDomain = true;
   delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
 }]);
 
 // custom API flavor
@@ -91,6 +93,8 @@ adminApp.config(['$stateProvider', require('./adverts/state')]);
 adminApp.controller('detailAdvertController', require('./adverts/controller'));
 adminApp.config(['$stateProvider', require('./products/state')]);
 adminApp.controller('detailProductController', require('./products/controller'));
+adminApp.config(['$stateProvider', require('./entities/basica/state')]);
+adminApp.controller('infoBasicaController', require('./entities/basica/controller'));
 
 adminApp.config(['NgAdminConfigurationProvider', function (nga) {
 
@@ -144,6 +148,7 @@ adminApp.config(['NgAdminConfigurationProvider', function (nga) {
         admin.addEntity(nga.entity('chatrooms'));
         admin.addEntity(nga.entity('usuarios'));
         admin.addEntity(nga.entity('clients'));
+        admin.addEntity(nga.entity('products'));
 
         require('./entities/configComercio')(nga, admin);
         require('./tags/configComercio')(nga, admin);
@@ -151,6 +156,7 @@ adminApp.config(['NgAdminConfigurationProvider', function (nga) {
         require('./usuarios/configComercio')(nga, admin);
         require('./chatrooms/configComercio')(nga, admin);
         require('./clients/configComercio')(nga, admin);
+        require('./products/configComercio')(nga, admin);
 
         admin.dashboard(require('./dashboard/configComercio')(nga, admin));
         admin.menu(require('./menuComercio')(nga, admin));
@@ -161,9 +167,63 @@ adminApp.config(['NgAdminConfigurationProvider', function (nga) {
     nga.configure(admin);
 }]);
 
-adminApp.config(['ngToastProvider', function(ngToastProvider) {
+adminApp.config(['ngToastProvider', '$stateProvider', function(ngToastProvider, $stateProvider) {
   console.log('pre');
   ngToastProvider.configure({
     animation: 'fade' // or 'fade'
   });
+
+  // uiGmapGoogleMapApiProvider.configure({
+  //     key: 'AIzaSyAMdV-HX0rtJd1njvA714X8mE1-ge--9EI',
+  //     v: '3.20' //defaults to latest 3.X anyhow
+  //     // libraries: 'weather,geometry,visualization, places'
+  // });
+
+  // $stateProvider.state('advertDetail', {
+  //   parent: 'main',
+  //   url: '/tutoriales',
+  //   params: { id: null },
+  //   template: ''
+  // });
 }]);
+
+adminApp.run(function($state, $rootScope, $http) {
+
+    var subscription = JSON.parse(localStorage.getItem('az_admin_subscription'));
+    var user = JSON.parse(localStorage.getItem('az_admin_user'));
+    var user_token = JSON.parse(localStorage.getItem('az_admin_login')).id;
+
+    $rootScope.$on('$stateChangeStart', function(e, to, toP, from, fromP){
+       if(to.data && to.data.subscriptions && to.data.subscriptions.length > 0 && typeof subscription !== 'undefined'){
+           if(to.data.subscriptions.indexOf(subscription.name) === -1){
+               e.preventDefault();
+               $state.go('entityHours'); //TODO: Change to correct page
+           }else{
+             if(to.data.limited && to.data.limit_type && typeof user !== 'undefined'){
+               switch (to.data.limit_type) {
+                 case 'advert':
+                    $http.get(urlBase + 'entities/' + user.entityId + '/adverts/count?access_token=' + user_token )
+                    .success(function(quantity){
+                      console.log(quantity);
+                      if(subscription.adverts_limit >= quantity.count){
+                        e.preventDefault();
+                        $state.go('entityHours'); //TODO: Change to correct page
+                      }
+                    });
+                   break;
+                 case 'product':
+                    $http.get(urlBase + 'entities/' + user.entityId + '/products/count?access_token=' + user_token )
+                    .success(function(quantity){
+                      console.log(quantity);
+                      if(subscription.products_limit >= quantity.count){
+                        e.preventDefault();
+                        $state.go('entityHours'); //TODO: Change to correct page
+                      }
+                    });
+                   break;
+               }
+             }
+           }
+        }
+    });
+  });

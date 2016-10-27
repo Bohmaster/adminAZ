@@ -1,0 +1,27 @@
+<div>
+	<div class="az-admin-header">
+		<h1 class="az-heading">
+			Información Básica
+		</h1>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 col-lg-6">
+      <input class="form-control" id="searchBox" type="text" placeholder="Cordoba 1250, Rosario, Santa Fe, Argentina" ng-model="address"/>
+    </div>
+    <div class="col-xs-6 col-lg-2">
+      <button class="btn btn-success form-control" ng-click="addAddress()">Buscar <i class="fa fa-search"></i></button>
+    </div>
+    <div class="col-xs-6 col-lg-2">
+      <button class="btn btn-primary" ng-click="addCurrentLocation()">Localizar! <i class="fa fa-map-marker"></i></button>
+    </div>
+		<!-- <geo></geo> -->
+		<div class="col-xs-12 col-md-8">
+			<div class="angular-google-map-container">
+				<ui-gmap-google-map center='map.center' zoom='map.zoom' draggable="true" control="map.control" options="map.options">
+					<ui-gmap-marker ng-repeat="m in map.markers" coords="m.coords"
+  icon="m.icon" idkey="m.id" options="m.options"></ui-gmap-marker>
+				</ui-gmap-google-map>
+			</div>
+		</div>
+	</div>
+</div>

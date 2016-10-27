@@ -7,5 +7,11 @@ export default function ($stateProvider) {
     params: { id: null },
     template: template,
     controller: 'entityTagsController',
+    data: {
+      subscriptions: [
+        'plata',
+        'oro'
+      ]
+    }
   });
 };
