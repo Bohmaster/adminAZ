@@ -87,7 +87,6 @@ export default ['$scope', '$http', '$stateParams', function ($scope, $http, $sta
             return false;
         }
 
-        debugger;
 
         if (!$scope.product.id) {
             $http.post(urlBase + 'products?access_token=' + user_token, {
