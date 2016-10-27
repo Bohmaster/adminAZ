@@ -50,7 +50,6 @@ export default ['$scope', '$http', 'ngToast', function($scope, $http, ngToast) {
 
   $scope.borrarTag = function(id) {
 
-    debugger;
 
     console.log(id);
 
