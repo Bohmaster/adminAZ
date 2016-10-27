@@ -1,5 +1,7 @@
 export default ['$scope', '$http', '$stateParams', function ($scope, $http, $stateParams) {
 
+
+
     var urlBase = localStorage.getItem('az_admin_api');
     var userId = JSON.parse(localStorage.getItem('az_admin_user')).id;
     var entityId = JSON.parse(localStorage.getItem('az_admin_user')).entityId;
@@ -11,6 +13,9 @@ export default ['$scope', '$http', '$stateParams', function ($scope, $http, $sta
     $scope.product = {};
     $scope.entity = {};
     $scope.entityId = entityId;
+
+    $scope.imgAvailable=false;
+    $scope.img = {};
 
     $scope.date = new Date().getDate();
 
@@ -81,6 +86,7 @@ export default ['$scope', '$http', '$stateParams', function ($scope, $http, $sta
         if (!$file) {
             return false;
         }
+
 
         if (!$scope.product.id) {
             $http.post(urlBase + 'products?access_token=' + user_token, {

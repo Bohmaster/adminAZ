@@ -8,19 +8,29 @@
 
                 <label for="titulo">Nombre del producto *</label>
                 <input type="text" class="form-control az-input" id="titulo" ng-model="product.title">
-                <label for="descripcion">Descripciòn o texto (hasta xx caracteres)</label>
+                <label for="descripcion">Descripción o texto (hasta xx caracteres)</label>
                 <textarea name="" id="" cols="30" rows="10" class="form-control az-input" id="descripcion" ng-model="product.description"></textarea>
                 <label for="text">Precio</label>
                 <input type="text" class="form-control" style="margin-bottom: 20px;" id="date" ng-model="product.cost">
                 <label for="">Imagen</label>
-                <button class="buttons-product az-input" ngf-select="uploadImage($file)" ngf-multiple="true">Subir imagen</button>
+                <!-- <button class="buttons-product az-input" ngf-select="uploadImage($file)" ngf-multiple="true">Subir imagen</button> -->
+								<input class="buttons-product az-input" ng-model="imgFile" filelist-bind name="imgFile" type="file" id="the-photo-file-field">
+
+								<div id="data">
+									<h2 ng-show="imgAvailable" id="name">{{img.name}}</h2>
+									<p ng-show="imgAvailable" id="size">{{img.size}}</p>
+									<p ng-show="imgAvailable" id="type">{{img.type}}</p>
+								</div>
+		</div>
 
             </div>
     </div>
     <div class="aside-me" style="text-align: center;">
         <h2>Vista previa</h2>
         <div class="objectWrapper">
-            <div class="divpromo" style="background-size: cover; background-repeat: no-repeat; background-image: url('http://104.131.113.114:3002/api/containers/entity_{{entityId}}/download/{{product.id}}.product')">
+            <!-- <div class="divpromo" style="background-size: cover; background-repeat: no-repeat; background-image: url('http://104.131.113.114:3002/api/containers/entity_{{entityId}}/download/{{product.id}}.product')"> -->
+            <div class="divpromo" style="background-size: cover; background-repeat: no-repeat; background-image: url({{the_url || '../images/favicon.png'}})">
+						<!-- <img class="divpromo" ng-src="{{the_url || '../images/favicon.png'}}"/> -->
              <div class="date-limit">
                  {{product.cost}}
              </div>
@@ -40,7 +50,7 @@
 
                  </div>
              </div>
-            <button class="buttons-product az-input" style="margin-top: 20px;" ng-click="createproduct()">Guardar Producto</button>
 
+            <button class="buttons-product az-input" style="margin-top: 20px;" ng-click="createproduct()">Guardar Producto</button>
         </div>
 </div>

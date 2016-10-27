@@ -59,6 +59,7 @@ adminApp.directive('messages', require('./messages/directives/viewMessages'));
 adminApp.directive('deleteRoom', require('./messages/directives/deleteRoom'));
 adminApp.directive('roommate', require('./messages/directives/roommate'));
 adminApp.directive('publishFacebook', require('./adverts/directives/publishFacebook'));
+adminApp.directive('filelistBind', require('./products/directives/filelistBind'));
 adminApp.directive('upload', require('./files/upload'));
 adminApp.directive('imagenes', require('./files/imagenes'));
 
